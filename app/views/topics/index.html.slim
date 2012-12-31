@@ -1,10 +1,10 @@
 h1 Listing topics
 
-table
+table.table
   tr
+    th Title
     th Description
-    th
-    th
+    th 
     th
     th
     th
@@ -13,10 +13,10 @@ table
     tr
       td = topic.title
       td = topic.description
-      td = link_to 'Add Chapter', topic_chapters_url(topic)
-      td = link_to 'Show', topic
-      td = link_to 'Edit', edit_topic_path(topic)
-      td = link_to 'Destroy', topic, :confirm => 'Are you sure?', :method => :delete
+      td = link_to 'Add Chapter', topic_chapters_url(topic), :class => 'btn'
+      td = link_to 'Show', topic, :class => 'btn'
+      td = link_to 'Edit', edit_topic_path(topic), :class => 'btn'
+      td = link_to 'Destroy', topic, :confirm => 'Are you sure?', :method => :delete, :class => 'btn'
 
 br
 
