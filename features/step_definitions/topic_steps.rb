@@ -6,5 +6,7 @@ When /^I follow "(.*?)"$/ do |arg1|
   click_link arg1  
 end
 
-Then /^I should be on new topic page$/ do
+Given /^I go to new topics page$/ do
+  visit new_topic_path  
 end
+

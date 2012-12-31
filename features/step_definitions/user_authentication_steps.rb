@@ -26,9 +26,14 @@ When /^I press "(.*?)"$/ do |arg1|
 end
 
 Then /^I should see "(.*?)"$/ do |arg1|
-  response.should have_content(arg1)
+  page.should have_content(arg1)
 end
 
 When /^I go to login page$/ do
   visit '/users/sign_in' 
 end
+
+Given /^I have registered with "(.*?)" and "(.*?)"$/ do |arg1, arg2|
+  User.new(:email => arg1, :password => arg2, :password_confirmation => arg2).save!
+end
+

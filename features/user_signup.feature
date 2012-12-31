@@ -19,8 +19,10 @@ Feature: Manage User signup
 
   Scenario: I am able to login as user 
     Given I am not authenticated
+    And I have registered with "foo@bar.com" and "fr33z3"
     When I go to login page
     And I fill in "user_email" with "foo@bar.com"
     And I fill in "user_password" with "fr33z3"
-    Then I should see "logged in as foo@bar.com"
+    And I press "Sign in"
+    Then I should see "Signed in successfully"
     # And more view checking stuff
