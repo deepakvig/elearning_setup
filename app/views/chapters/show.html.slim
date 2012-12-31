@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @chapter.title
+p
+  strong Description:
+  = @chapter.description
+p
+  strong Topic:
+  = @chapter.topic.title
+
+= link_to 'Edit', [:edit, @topic, @chapter]
+'|
+= link_to 'Back', topic_chapters_path
