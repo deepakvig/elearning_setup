@@ -1,4 +1,4 @@
-= semantic_form_for @topic do |f|
+= form_for @topic, :class => "form-horizontal" do |f|
   - if @topic.errors.any?
     #error_explanation
       h2 = "#{pluralize(@topic.errors.count, "error")} prohibited this topic from being saved:"
@@ -6,7 +6,11 @@
         - @topic.errors.full_messages.each do |message|
           li = message
 
-  = f.input :title 
-  = f.input :description
+  .control-group
+    .controls 
+      = f.text_field :title, :placeholder => "Title" 
+  .control-group
+    .controls 
+      = f.text_area :description, :placeholder => "Description"
   .actions 
     = f.submit 'Save', :class => "btn"

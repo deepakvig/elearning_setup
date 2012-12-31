@@ -1,11 +1,12 @@
 h1 Listing chapters
 h2 = @chapters.first.try(:topic).try(:title)
 
-table
+table.table
   tr
     th Title
     th Description
     th Topic
+    th
     th
     th
 
@@ -13,10 +14,11 @@ table
     tr
       td = chapter.title
       td = chapter.description
-      td = link_to 'Show', [@topic, chapter]
-      td = link_to 'Edit', [:edit, @topic, chapter]
-      td = link_to 'Destroy', [@topic, chapter], :confirm => 'Are you sure?', :method => :delete
+      td = chapter.topic.title
+      td = link_to 'Show', [@topic, chapter], :class => "btn"
+      td = link_to 'Edit', [:edit, @topic, chapter], :class => "btn"
+      td = link_to 'Destroy', [@topic, chapter], :confirm => 'Are you sure?', :method => :delete, :class => "btn"
 
 br
 
-= link_to 'New Chapter', new_topic_chapter_path
+= link_to 'New Chapter', new_topic_chapter_path, :class => "btn"
