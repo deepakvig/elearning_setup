@@ -19,6 +19,8 @@ describe ChaptersController do
   context "#show" do
     it "finds a record and assigns chapter as @chapter" do
       @topic.stub_chain(:chapters, :find).and_return(@chapter = mock_model(Chapter))
+      @chapter.stub(:prev_chapter).and_return(@chapter)
+      @chapter.stub(:next_chapter).and_return(@chapter)
       get :show, {:topic_id => @topic.to_param, :id => 1}
       assigns(:chapter).should eql(@chapter)
       response.should render_template('show')

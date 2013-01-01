@@ -2,8 +2,6 @@ class TopicsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
-    @topics = Topic.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @topics }

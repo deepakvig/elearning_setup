@@ -1,15 +1,18 @@
 p#notice = notice
 
-p
-  strong Title:
-  = @chapter.title
-p
-  strong Description:
+h2.centered-text
+  = @chapter.title.capitalize
+.hero-unit
   = @chapter.description
-p
-  strong Topic:
-  = @chapter.topic.title
 
-= link_to 'Edit', [:edit, @topic, @chapter]
-'|
-= link_to 'Back', topic_chapters_path
+ul.pager
+  - if !@prev_chapter.blank?
+    li class="previous"
+      = link_to raw("&larr; Previous"), [@topic, @prev_chapter]
+  - if !@next_chapter.blank?
+    li class="next"
+      = link_to raw("Next &rarr;"), [@topic, @next_chapter]
+
+= link_to 'Edit', [:edit, @topic, @chapter], :class => "btn"
+'&nbsp;
+= link_to 'Back', topic_chapters_path, :class => "btn"

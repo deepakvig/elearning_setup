@@ -13,6 +13,8 @@ class ChaptersController < ApplicationController
 
   def show
     @chapter = @topic.chapters.find(params[:id])
+    @prev_chapter = @chapter.prev_chapter
+    @next_chapter = @chapter.next_chapter
 
     respond_to do |format|
       format.html # show.html.erb

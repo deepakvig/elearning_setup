@@ -27,15 +27,21 @@ html
                 li= link_to "Sign In", new_user_session_path
 
     .container
-      .hero-unit
-        - if !notice.blank?
-          .alert.alert-info
-            button type="button" class="close" data-dismiss="alert"
-              = raw("&times;")
-            = notice
-        - if !alert.blank?
-          .alert
-            button type="button" class="close" data-dismiss="alert"
-            = alert
-        = yield
+      .row
+        .span3.bs-docs-sidebar
+          ul.nav.nav-list.bs-docs-sidenav.affix
+            - @topics.each do |topic|
+              li
+                =link_to topic.title, topic
+        .span9
+          - if !notice.blank?
+            .alert.alert-info
+              button type="button" class="close" data-dismiss="alert"
+                = raw("&times;")
+              = notice
+          - if !alert.blank?
+            .alert
+              button type="button" class="close" data-dismiss="alert"
+              = alert
+          = yield
 
